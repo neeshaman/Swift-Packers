@@ -35,11 +35,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<div class="slider h-auto">
 		<div class="callbacks_container">
 			<ul class="rslides" id="slider" name="slider">
-				<!-- <% for(int i=1;i<5;i++) {%> --> 
+				
 				<c:forEach var = "i" begin = "1" end = "5">
 				<li>
-					<div class="w3layouts-banner-top<%=i%>">
-						<div class="banner-dott">
+					<div class="w3layouts-banner-top ${i}">
+						<div class="banner-dott">	
 						<div class="container">
 							<div class="slider-info">
 								<div class="col-md-8">
@@ -70,7 +70,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</div>
 				</li>
 				</c:forEach>
-				<!--   <%} %>-->
+				
 				
 			</ul>
 		</div>

@@ -32,21 +32,21 @@ import net.authorize.api.controller.base.ApiOperationBase;
 public class ChargeCreditCardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-		
+
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String cardName = request.getParameter("cardName");
 		String ccNumber = request.getParameter("creditCard");
 		String expDate = request.getParameter("expDate");
-		String amount = request.getParameter("amount");
+		int amount = Integer.parseInt(request.getParameter("amount"));
 		String quotId = request.getParameter("quotId");
 		String venId = request.getParameter("venId");
 		String cvv = request.getParameter("cvv");
 		String haulId = request.getParameter("haulId");
 		String deliveryDate = request.getParameter("deliveryDate");
-		
+
 		/*boolean isError=false;
-		
+
 		if (cardName.trim().length() == 0)
 		{
 			isError = true;
@@ -56,24 +56,24 @@ public class ChargeCreditCardServlet extends HttpServlet {
 		{
             int flag=0;
 			for(int i=0;i<cardName.trim().length();i++)
-			{    
-				
+			{
+
 				if( (cardName.charAt(i)>=33 && cardName.charAt(i)<=64) || (cardName.charAt(i)>=91 && cardName.charAt(i)<=96) || (cardName.charAt(i)>=123 && cardName.charAt(i)<=126 ))
-				{	
+				{
 					isError = true;
 					request.setAttribute("CardNameError", "<font color='red'>Please Enter valid card name</font>");
 					flag=1;
 					break;
 				}
 			}
-			
+
 			if(flag==0)
 			{
 				request.setAttribute("CardNameValue", cardName);
 			}
 		}
-		
-		
+
+
 		if(cvv.trim().length()!=3)
 		{
 			isError=true;
@@ -90,10 +90,10 @@ public class ChargeCreditCardServlet extends HttpServlet {
 					break;
 				}
 			}
-			
+
 		}*/
 	//run("5mJs7W52", "2xg926XsHNj9H868", Double.parseDouble(amount), ccNumber, expDate);
-		String ss = run("6SznW287", "72XjH2V847LkmgTp", Integer.parseInt(amount), ccNumber, expDate,quotId,venId,haulId,deliveryDate);
+		//String ss = run("6SznW287", "72XjH2V847LkmgTp", Integer.parseInt(amount), ccNumber, expDate,quotId,venId,haulId,deliveryDate);
 	    RequestDispatcher rd=null;
 	    /*if(isError==true)
 	    {
@@ -101,127 +101,161 @@ public class ChargeCreditCardServlet extends HttpServlet {
 	    }
 	    else
 	    {*/
-	    	if(ss.contains("success,")) 
-	    	{
-				String aa [] = ss.split(",");
-				request.setAttribute("Authcode",aa[1]);
+
+	    QuotationDao Qdao=new QuotationDao();
+		if(Qdao.updateQuotationStatus(quotId))
+		{
+			System.out.println("status updated in Quotation");
+			HaulageDao hdao=new HaulageDao();
+			if(hdao.updateHaulageStatus(haulId, venId, ccNumber/*result.getAuthCode()*/,deliveryDate, amount))
+			{
+				System.out.println("status updated in haulage");
 				rd=request.getRequestDispatcher("paymentSucess.jsp");
-		    	
-		    }
-	    	else
+			}
+			else
 	    	{
-		    	request.setAttribute("PaymentError","<font color='red'>"+ss+"</font>");
+		    	request.setAttribute("PaymentError","<font color='red'>"+"Error"+"</font>");
 		    	rd=request.getRequestDispatcher("CreditCard.jsp");
 		    }
-	   // }
+		}
+		else
+    	{
+	    	request.setAttribute("PaymentError","<font color='red'>"+ "Error "+"</font>");
+	    	rd=request.getRequestDispatcher("CreditCard.jsp");
+	    }
+//
+//		HaulageDao hdao=new HaulageDao();
+//		if(hdao.updateHaulageStatus(haulId, venId, acc/*result.getAuthCode()*/,deliveryDate,amount))
+//		{
+//			System.out.println("status updated in haulage");
+//			rd=request.getRequestDispatcher("paymentSucess.jsp");
+//		}
+//		else
+//    	{
+//	    	request.setAttribute("PaymentError","<font color='red'>"+ss+"</font>");
+//	    	rd=request.getRequestDispatcher("CreditCard.jsp");
+//	    }
+//	    	if(ss.contains("success,"))
+//	    	{
+//				String aa [] = ss.split(",");
+//				request.setAttribute("Authcode",aa[1]);
+//				rd=request.getRequestDispatcher("paymentSucess.jsp");
+//
+//		    }
+//	    	else
+//	    	{
+//		    	request.setAttribute("PaymentError","<font color='red'>"+ss+"</font>");
+//		    	rd=request.getRequestDispatcher("CreditCard.jsp");
+//		    }
+//	   // }
 		rd.forward(request,response);
 	}
-
-	public static String run(String apiLoginId, String transactionKey, int amount, String ccNum,
-			String expDate,String quotId,String venId,String haulId,String deliveryDate) {
-		String palak = "";
-		// Set the request to operate in either the sandbox or production
-		// environment
-		ApiOperationBase.setEnvironment(Environment.SANDBOX);
-
-		// Create object with merchant authentication details
-		MerchantAuthenticationType merchantAuthenticationType = new MerchantAuthenticationType();
-		merchantAuthenticationType.setName(apiLoginId);
-		merchantAuthenticationType.setTransactionKey(transactionKey);
-
-		// Populate the payment data
-		PaymentType paymentType = new PaymentType();
-		CreditCardType creditCard = new CreditCardType();
-		creditCard.setCardNumber(ccNum);
-		creditCard.setExpirationDate(expDate);
-		paymentType.setCreditCard(creditCard);
-
-		// Create the payment transaction object
-		TransactionRequestType txnRequest = new TransactionRequestType();
-		txnRequest.setTransactionType(TransactionTypeEnum.AUTH_CAPTURE_TRANSACTION.value());
-		txnRequest.setPayment(paymentType);
-		txnRequest.setAmount(new BigDecimal(amount).setScale(2, RoundingMode.CEILING));
-
-		// Create the API request and set the parameters for this specific
-		// request
-		CreateTransactionRequest apiRequest = new CreateTransactionRequest();
-		apiRequest.setMerchantAuthentication(merchantAuthenticationType);
-		apiRequest.setTransactionRequest(txnRequest);
-
-		// Call the controller
-		CreateTransactionController controller = new CreateTransactionController(apiRequest);
-		controller.execute();
-
-		// Get the response
-		CreateTransactionResponse response = new CreateTransactionResponse();
-		response = controller.getApiResponse();
-		// Parse the response to determine results
-		if (response != null) {
-			// If API Response is OK, go ahead and check the transaction
-			// response
-			if (response.getMessages().getResultCode() == MessageTypeEnum.OK)
-			{
-				TransactionResponse result = response.getTransactionResponse();
-				if (result.getMessages() != null) {
-					System.out.println("Successfully created transaction with Transaction ID: " + result.getTransId());
-					System.out.println("Response Code: " + result.getResponseCode());
-					System.out.println("Message Code: " + result.getMessages().getMessage().get(0).getCode());
-					System.out.println("Description: " + result.getMessages().getMessage().get(0).getDescription());
-					System.out.println("Auth Code: " + result.getAuthCode());
-					// user display ----> authcode -->db save ..
-						
-					QuotationDao Qdao=new QuotationDao();
-					if(Qdao.updateQuotationStatus(quotId))
-					{
-						System.out.println("status updated in Quotation");
-					}
-					
-					HaulageDao hdao=new HaulageDao();
-					if(hdao.updateHaulageStatus(haulId, venId, result.getAuthCode(),deliveryDate,amount))
-					{
-						System.out.println("status updated in haulage");
-					}
-					palak = "success,"+result.getAuthCode();
-					//RequestDispatcher rd=null;
-					//rd=request.getRequestDispatcher(request,response);
-				
-				} else {
-					System.out.println("Failed Transaction.");
-					if (response.getTransactionResponse().getErrors() != null) {
-						System.out.println("Error Code: "
-								+ response.getTransactionResponse().getErrors().getError().get(0).getErrorCode());
-						System.out.println("Error message: "
-								+ response.getTransactionResponse().getErrors().getError().get(0).getErrorText());
-						}
-					palak = response.getTransactionResponse().getErrors().getError().get(0).getErrorText();
-				}
-			} else {
-				System.out.println("Failed Transaction.");
-				if (response.getTransactionResponse() != null && response.getTransactionResponse().getErrors() != null)
-				{
-					System.out.println("Error Code: "
-							+ response.getTransactionResponse().getErrors().getError().get(0).getErrorCode());
-					System.out.println("Error message: "
-							+ response.getTransactionResponse().getErrors().getError().get(0).getErrorText());
-                   palak = response.getTransactionResponse().getErrors().getError().get(0).getErrorText();
-				} else {
-					System.out.println("Error Code: " + response.getMessages().getMessage().get(0).getCode());
-					System.out.println("Error message: " + response.getMessages().getMessage().get(0).getText());
-					palak =  response.getMessages().getMessage().get(0).getText();
-				}
-			}
-		} else {
-			// Display the error code and message when response is null
-			ANetApiResponse errorResponse = controller.getErrorResponse();
-			System.out.println("Failed to get response");
-			if (!errorResponse.getMessages().getMessage().isEmpty()) {
-				System.out.println("Error: " + errorResponse.getMessages().getMessage().get(0).getCode() + " \n"
-						+ errorResponse.getMessages().getMessage().get(0).getText());
-				palak = errorResponse.getMessages().getMessage().get(0).getText();
-			}
-		}
-
-		return palak;
-	}
+//
+//	public static String run(String apiLoginId, String transactionKey, int amount, String ccNum,
+//			String expDate,String quotId,String venId,String haulId,String deliveryDate) {
+//		String rr = "";
+//		// Set the request to operate in either the sandbox or production
+//		// environment
+//		ApiOperationBase.setEnvironment(Environment.SANDBOX);
+//
+//		// Create object with merchant authentication details
+//		MerchantAuthenticationType merchantAuthenticationType = new MerchantAuthenticationType();
+//		merchantAuthenticationType.setName(apiLoginId);
+//		merchantAuthenticationType.setTransactionKey(transactionKey);
+//
+//		// Populate the payment data
+//		PaymentType paymentType = new PaymentType();
+//		CreditCardType creditCard = new CreditCardType();
+//		creditCard.setCardNumber(ccNum);
+//		creditCard.setExpirationDate(expDate);
+//		paymentType.setCreditCard(creditCard);
+//
+//		// Create the payment transaction object
+//		TransactionRequestType txnRequest = new TransactionRequestType();
+//		txnRequest.setTransactionType(TransactionTypeEnum.AUTH_CAPTURE_TRANSACTION.value());
+//		txnRequest.setPayment(paymentType);
+//		txnRequest.setAmount(new BigDecimal(amount).setScale(2, RoundingMode.CEILING));
+//
+//		// Create the API request and set the parameters for this specific
+//		// request
+//		CreateTransactionRequest apiRequest = new CreateTransactionRequest();
+//		apiRequest.setMerchantAuthentication(merchantAuthenticationType);
+//		apiRequest.setTransactionRequest(txnRequest);
+//
+//		// Call the controller
+//		CreateTransactionController controller = new CreateTransactionController(apiRequest);
+//		controller.execute();
+//
+//		// Get the response
+//		CreateTransactionResponse response = new CreateTransactionResponse();
+//		response = controller.getApiResponse();
+//		// Parse the response to determine results
+//		if (response != null) {
+//			// If API Response is OK, go ahead and check the transaction
+//			// response
+//			if (response.getMessages().getResultCode() == MessageTypeEnum.OK)
+//			{
+//				TransactionResponse result = response.getTransactionResponse();
+//				if (result.getMessages() != null) {
+//					System.out.println("Successfully created transaction with Transaction ID: " + result.getTransId());
+//					System.out.println("Response Code: " + result.getResponseCode());
+//					System.out.println("Message Code: " + result.getMessages().getMessage().get(0).getCode());
+//					System.out.println("Description: " + result.getMessages().getMessage().get(0).getDescription());
+//					System.out.println("Auth Code: " + result.getAuthCode());
+//					// user display ----> authcode -->db save ..
+//
+//					QuotationDao Qdao=new QuotationDao();
+//					if(Qdao.updateQuotationStatus(quotId))
+//					{
+//						System.out.println("status updated in Quotation");
+//					}
+//
+//					HaulageDao hdao=new HaulageDao();
+//					if(hdao.updateHaulageStatus(haulId, venId, acc/*result.getAuthCode()*/,deliveryDate,amount))
+//					{
+//						System.out.println("status updated in haulage");
+//					}
+//					rr = "success,"+result.getAuthCode();
+//					//RequestDispatcher rd=null;
+//					//rd=request.getRequestDispatcher(request,response);
+//
+//				} else {
+//					System.out.println("Failed Transaction.");
+//					if (response.getTransactionResponse().getErrors() != null) {
+//						System.out.println("Error Code: "
+//								+ response.getTransactionResponse().getErrors().getError().get(0).getErrorCode());
+//						System.out.println("Error message: "
+//								+ response.getTransactionResponse().getErrors().getError().get(0).getErrorText());
+//						}
+//					rr = response.getTransactionResponse().getErrors().getError().get(0).getErrorText();
+//				}
+//			} else {
+//				System.out.println("Failed Transaction.");
+//				if (response.getTransactionResponse() != null && response.getTransactionResponse().getErrors() != null)
+//				{
+//					System.out.println("Error Code: "
+//							+ response.getTransactionResponse().getErrors().getError().get(0).getErrorCode());
+//					System.out.println("Error message: "
+//							+ response.getTransactionResponse().getErrors().getError().get(0).getErrorText());
+//                   rr = response.getTransactionResponse().getErrors().getError().get(0).getErrorText();
+//				} else {
+//					System.out.println("Error Code: " + response.getMessages().getMessage().get(0).getCode());
+//					System.out.println("Error message: " + response.getMessages().getMessage().get(0).getText());
+//					rr =  response.getMessages().getMessage().get(0).getText();
+//				}
+//			}
+//		} else {
+//			// Display the error code and message when response is null
+//			ANetApiResponse errorResponse = controller.getErrorResponse();
+//			System.out.println("Failed to get response");
+//			if (!errorResponse.getMessages().getMessage().isEmpty()) {
+//				System.out.println("Error: " + errorResponse.getMessages().getMessage().get(0).getCode() + " \n"
+//						+ errorResponse.getMessages().getMessage().get(0).getText());
+//				rr = errorResponse.getMessages().getMessage().get(0).getText();
+//			}
+//		}
+//
+//		return rr;
+//	}
 
 }

@@ -270,8 +270,6 @@ function hideURLbar(){ window.scrollTo(0,1); }
 			stmt3vtype = con.createStatement();
 			stmt4vtype = con.createStatement();
 			
-			//stmt2f =con.createStatement();
-			
 			stmt2o=con.createStatement();
 			stmt3o=con.createStatement();
 			stmt4o=con.createStatement();

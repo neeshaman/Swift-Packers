@@ -8,7 +8,15 @@
     
   </welcome-file-list>
   
-  
+  <servlet>
+    <servlet-name>SearchVendor</servlet-name>
+    <servlet-class>com.SwiftPackers.controller.SearchVendorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchVendor</servlet-name>
+    <url-pattern>/SearchVendor</url-pattern>
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>SignupServlet</servlet-name>
     <servlet-class>com.SwiftPackers.controller.SignupServlet</servlet-class>

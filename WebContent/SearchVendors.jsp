@@ -98,8 +98,9 @@ h1 {
 
    
   <!-- HEADER INCLUDE -->
-   <%@include file="header.jsp" %>		
-   
+   <%@include file="header.jsp" %>	
+   	
+   <% boolean istheredata = (boolean)request.getAttribute("res"); %>
    
 	<div class="banner1">
 	</div>
@@ -111,17 +112,27 @@ h1 {
 			</ul>
 		</div>
 	</div>
-        <div class="container1">
+	<form action="">
+	        <div class="container1">
             <div id="searchWrapper">
                 <input
                     type="text"
-                    name="searchBar"
+                    name="search"
                     id="searchBar"
                     placeholder="Search for a Vendor"
                 />
             </div>
             <ul id="charactersList"></ul>
         </div>
+        </form>
+        
+        
+        <%if(istheredata) {%>
+			<h3>Here is the result</h3>
+		<%} else {%>
+		    <h3>Sorry!No data found!</h3>
+		<%}%>
+		
         <script>
         const charactersList = document.getElementById('charactersList');
         const searchBar = document.getElementById('searchBar');
@@ -168,7 +179,7 @@ h1 {
 
         </script>
 
-
+		
 
    <!-- footer -->
 			<%@include file="footer.jsp" %>

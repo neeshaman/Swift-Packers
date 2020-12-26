@@ -251,4 +251,50 @@ public class Vendor_detailDao
 		}
 		return flag;
 	}
+
+	public ArrayList<Vendor_detailBean> searchVendor_detail(String vendor_str) 
+	{
+		ArrayList<Vendor_detailBean> list = new ArrayList<Vendor_detailBean>();
+
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		try
+		{
+			con = DbConnection.getConnection();
+			
+			stmt = con.createStatement();
+			String selectQ = "select * from public.vendor_detail where company_name like %" + vendor_str +"%";
+			System.out.println(selectQ);
+			rs = stmt.executeQuery(selectQ);
+			
+			Vendor_detailBean bean = null;
+			
+//			String Q = "SELECT * FROM vendor_detail";
+//			PreparedStatement preparedStatement = con.prepareStatement(Q);
+//			rs = preparedStatement.executeQuery();
+			
+			while (rs.next())
+			{
+				bean = new Vendor_detailBean();
+				bean.setVendorDetailId(rs.getString("vendor_detail_id"));
+				bean.setUserId(rs.getString("user_id"));
+				bean.setAddress(rs.getString("address"));
+				bean.setCity(rs.getString("city"));
+				bean.setLicense(rs.getString("license"));
+				bean.setMaxVehicle(rs.getString("max_vehicle"));
+				bean.setCompanyName(rs.getString("company_name"));
+				list.add(bean);
+			}
+		} 
+		catch (Exception e)
+		{
+			System.out.println("error in  list vendor detail....");
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	
+	
 }
