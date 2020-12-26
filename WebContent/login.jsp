@@ -31,26 +31,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //web-fonts -->
 </head>
 <body>
-
-	<%/*
-		Connection con = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		try
-		{
-			con = DbConnection.getConnection();
-			stmt = con.createStatement();
-			String selectQ = "select * from user_type";
-			rs = stmt.executeQuery(selectQ);
-
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
- */	%>
-
-
 	<%
 		String EmailError = (String) request.getAttribute("EmailError");
 		String PasswordError = (String) request.getAttribute("PasswordError");
@@ -80,25 +60,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 				</div>
 				<br>
-				<%-- <div class="form-left-w3ls ">
-
-					<select name="userType" required>
-							<option value="-1">Please select User Type</option>
-							<%
-							String nm, id;
-							while (rs.next()) {
-								id = rs.getString("User_type_id");
-								nm = rs.getString("User_type_name");
-							%>
-
-							<option value="<%=id%>"><%=nm%></option>
-							<%
-								}
-							%>
-					</select><%=UserTypeError == null ? "" : UserTypeError%>
-
-
-				</div>--%>
+				
 				<div class="clearfix"></div>
 			</div>
 

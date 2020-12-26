@@ -86,23 +86,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					</div>	 
 					<input type="submit" value="SEND">
 				
-		
-	<%-- 	<br> User: <select name="user">
-			<option value="-1">Please select User</option>
-			<%
-				String nm, id;
-				while (rs.next()) 
-				{
-					id = rs.getString("user_id");
-					nm = rs.getString("user_name");
-			%>
-
-			<option value="<%=id%>"><%=nm%></option>
-			<%
-					}
-			%>
-			</select><%=UserIdError == null ? "" : UserIdError%>
-	--%>
 		 </form>
 			</div>
 
@@ -133,16 +116,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
+		$().UItoTop({ easingType: 'easeOutQuart' });
 								
 			});
 	</script>

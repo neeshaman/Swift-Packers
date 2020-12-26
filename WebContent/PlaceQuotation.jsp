@@ -1,9 +1,3 @@
-<!--
-	Author: W3layouts
-	Author URL: http://w3layouts.com
-	License: Creative Commons Attribution 3.0 Unported
-	License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <%@ page import="java.sql.ResultSet" %>
 <%@page import="com.SwiftPackers.util.DbConnection"%>
 <%@page import="java.sql.Statement"%>
@@ -116,8 +110,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 
 	<%
-		//String haulId=request.getParameter("haul_id");
-		//String custId=request.getParameter("cust_id");
 		String HaulageTitleError = (String) request.getAttribute("HaulageTitleError");//null
 		String DeliveryDateError = (String) request.getAttribute("DeliveryDateError");
 		String QuotPriceError = (String) request.getAttribute("QuotPriceError");
@@ -206,16 +198,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
+		$().UItoTop({ easingType: 'easeOutQuart' });
 								
 			});
 	</script>

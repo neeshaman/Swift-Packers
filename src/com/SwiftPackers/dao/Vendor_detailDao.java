@@ -19,8 +19,7 @@ public class Vendor_detailDao
 		Statement stmt = null;
 		try
 		{
-			con = DbConnection.getConnection();
-			
+			con = DbConnection.getConnection(); 
 			stmt = con.createStatement();
 			//String license = bean.getLicense();
 			

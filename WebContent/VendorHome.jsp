@@ -93,9 +93,7 @@ function hideURLbar()
 					<div class="resp-tabs-container">
 						<div class="tab-1 resp-tab-content">
 							<div class="col-lg-12 portfolio-grids portfolio-grid1">
-								<!--<a href="images/g1.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">-->
-								<!--<img src="images/g1.jpg" class="img-responsive zoom-img" alt=""/>-->
-        
+		
 							  <table class="table" >
 								<thead>
 								<tr>
@@ -158,49 +156,8 @@ function hideURLbar()
 								 
 								</tbody>
 							  </table>
-								<!--<a href="images/ship1.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/ship1.jpg" class="img-responsive zoom-img" alt=""/>-
-            
--->									<!--<div class="b-wrapper">
-										<h5>Ship Transport</h5>
-									</div>
-								</a>-->
-							</div>
-							<!--<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid2">
-								<a href="images/ship2.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-								<img src="images/ship2.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Ship Transport</h5>
-				</div>
-								</a>
-							</div>-->
-							<!--<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid3">
-								<a href="images/ship3.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/ship3.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Ship Transport</h5>
-									</div>
-								</a>
-							</div>-->
-								<!--<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid4">
-								<a href="images/ship4.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/ship4.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Ship Transport</h5>
-									</div>
-								</a>
-							</div>-->
-							<!--<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid5">
-								<a href="images/ship5.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/ship5.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Ship Transport</h5>
-									</div>
-								</a>
-							</div>
--->                            
-              
-                            
+							  				</div>
+							              
 						<div class="clearfix"> </div>
 						</div>
 						<div class="tab-1 resp-tab-content">
@@ -240,48 +197,9 @@ function hideURLbar()
 								 <%cnt2++;} %>
 								</tbody>
 							  </table>
-								<!--<a href="images/train1.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-								<img src="images/train1.jpg" class="img-responsive zoom-img" alt=""/>
-
-								<div class="b-wrapper">
-										<h5>Truck Transport</h5>
-									</div>
-								</a>-->
+								
 							</div>
-							<!--<div class="col-md-4 col-sm-4 portfolio-grids  portfolio-grid2">
-								<a href="images/train2.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/train2.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Truck Transport</h5>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-4 col-sm-4 portfolio-grids  portfolio-grid3">
-								<a href="images/truck3.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/truck3.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Truck Transport</h5>
-									</div>
-								</a>
-							</div>-->
-							<!--<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid1">
-								<a href="images/truck4.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/truck4.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Truck Transport</h5>
-									</div>
-								</a>
-							</div>
-							
-							<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid2">
-								<a href="images/truck5.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/truck5.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Truck Transport</h5>
-									</div>
-								</a>
-							</div>-->
-							<div class="clearfix"> </div>
+						<div class="clearfix"> </div>
 						</div>
 						<div class="tab-1 resp-tab-content">
 							<div class="col-lg-12 portfolio-grids portfolio-grid1">
@@ -316,54 +234,10 @@ function hideURLbar()
 								 </tr>
 								</tbody>
 							  </table>
-								<!--<a href="images/flight1.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/flight1.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Flight Transport</h5>
-									</div>
-								</a>-->
+								
 							</div>
-							<!--
-							<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid2">
-								<a href="images/flight2.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/flight2.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Flight Transport</h5>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-4 col-sm-4 portfolio-grids  portfolio-grid3">
-								<a href="images/flight3.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/flight3.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Flight Transport</h5>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid4">
-								<a href="images/flight4.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/flight4.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Flight Transport</h5>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid4">
-								<a href="images/flight5.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/flight5.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Flight Transport</h5>
-									</div>
-								</a>
-							</div>--><!--
-							<div class="col-md-4 col-sm-4 portfolio-grids portfolio-grid4">
-								<a href="images/flight6.jpg" data-lightbox="example-set" data-title="Lorem Ipsum is simply dummy the when an unknown galley of type and scrambled it to make a type specimen.">
-									<img src="images/flight6.jpg" class="img-responsive zoom-img" alt=""/>
-									<div class="b-wrapper">
-										<h5>Flight Transport</h5>
-									</div>
-								</a>
-							</div>-->
+							
+							
 							<div class="clearfix"> </div>
 						</div>
 					</div>						
@@ -415,15 +289,7 @@ function hideURLbar()
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
+							
 			$().UItoTop({ easingType: 'easeOutQuart' });
 								
 			});

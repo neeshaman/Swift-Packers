@@ -74,29 +74,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </div>
 <!-- //services section -->
 
-<!-- bootstrap-modal-pop-up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					Transport 
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-					<div class="modal-body">
-						<img src="images/bg3.jpg" alt=" " class="img-responsive" />
-						<p>Ut enim ad minima veniam, quis nostrum 
-							exercitationem ullam corporis suscipit laboriosam, 
-							nisi ut aliquid ex ea commodi consequatur? Quis autem 
-							vel eum iure reprehenderit qui in ea voluptate velit 
-							esse quam nihil molestiae consequatur, vel illum qui 
-							dolorem eum fugiat quo voluptas nulla pariatur.
-							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-								esse quam nihil molestiae consequatur.</i></p>
-					</div>
-			</div>
-		</div>
-	</div>
-<!-- //bootstrap-modal-pop-up --> 
+
 
 <!-- services bottom -->
 <div class="Servicebottom">
@@ -148,16 +126,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
+		$().UItoTop({ easingType: 'easeOutQuart' });
 								
 			});
 	</script>

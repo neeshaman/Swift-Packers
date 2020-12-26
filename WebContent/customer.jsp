@@ -1,9 +1,8 @@
-
 <%@ page import="com.SwiftPackers.bean.UserBean"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Her@feri</title>
+<title>Swift Packers</title>
 <!-- Meta tag Keywords -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -44,7 +43,7 @@ function hideURLbar(){ window.scrollTo(0,1); }
 						class="icon-bar"></span>
 				</button>
 				<h1>
-					<a href="UserHome.jsp">Her@feri</a>
+					<a href="UserHome.jsp">   <img alt="" src="imagesA/logo.png">	</a>
 				</h1>
 			</div>
 
@@ -60,6 +59,7 @@ function hideURLbar(){ window.scrollTo(0,1); }
 
 
 					<li><a href="contact.jsp" class="hvr-underline-from-center">Contact</a>
+					<li><a href="SearchVendors.jsp" class="hvr-underline-from-center">Search</a>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="CustFinalServlet"
@@ -120,123 +120,10 @@ function hideURLbar(){ window.scrollTo(0,1); }
 	</div>
 		
 <!-- Customer-->
-		<!-- footer -->
-		<footer>
-			<div class="agileits-w3layouts-footer">
-
-				<div class="col-md-4 w3-agile-grid">
-					<h5>About Us</h5>
-					<p>
-						We have been established since 2009<br>The vendors are fully
-						secure and no malpractice.<br>Till now all Customer are
-						satisfied from our work<br>The workers are very well trained.
-					</p>
-					<div class="footer-agileinfo-social">
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-rss"></i></a></li>
-							<li><a href="#"><i class="fa fa-vk"></i></a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-md-4 w3-agile-grid">
-					<h5>Address</h5>
-					<div class="w3-address">
-						<div class="w3-address-grid">
-							<div class="w3-address-left">
-								<i class="fa fa-phone" aria-hidden="true"></i>
-							</div>
-							<div class="w3-address-right">
-								<h6>Phone Number</h6>
-								<p>+91(079)23297201</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="w3-address-grid">
-							<div class="w3-address-left">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-							</div>
-							<div class="w3-address-right">
-								<h6>Email Address</h6>
-								<p>
-									Email :<a href="mailto:example@email.com">heraferi2930@gmail.com</a>
-								</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="w3-address-grid">
-							<div class="w3-address-left">
-								<i class="fa fa-map-marker" aria-hidden="true"></i>
-							</div>
-							<div class="w3-address-right">
-								<h6>Location</h6>
-								<p>
-									Navrangpura,Ahmedabad, Gujarat,India. <br>Telephone :
-									+91(079)23297201
-								</p>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 w3-agile-grid">
-					<h5>Recent Posts</h5>
-					<div class="w3ls-post-grids">
-						<div class="w3ls-post-grid">
-							<div class="w3ls-post-img">
-								<a><img src="images/p1.jpg" alt="" /></a>
-							</div>
-							<div class="w3ls-post-info">
-								<h6><a>Vehicle transfer in Ahmedabad</a></h6>
-								<p>June 10,2017</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="w3ls-post-grid">
-							<div class="w3ls-post-img">
-								<a><img src="images/p2.jpg" alt="" /></a>
-							</div>
-							<div class="w3ls-post-info">
-								<h6><a>Household item transfer in Ahmedabad</a></h6>
-								<p>June 17,2017</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="w3ls-post-grid">
-							<div class="w3ls-post-img">
-								<a href><img src="images/p3.jpg" alt="" /></a>
-							</div>
-							<div class="w3ls-post-info">
-								<h6><a >Office Removals transfer in Ahmedabad</a></h6>
-								<p>June 26,2017</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="w3ls-post-grid">
-							<div class="w3ls-post-img">
-								<a href><img src="images/p1.jpg" alt="" /></a>
-							</div>
-							<div class="w3ls-post-info">
-								<h6><a >Pets transfer in Ahmedabad</a></h6>
-								<p>June 26,2017</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		
-			<div class="copyright">
-				<div class="container">
-					<p>© Her@feri home page</p>
-				</div>
-			</div>
-		</footer>
+	<!-- footer -->
+			<%@include file="footer.jsp" %>
 		<!-- //footer -->
-
+	
 
 
 		<!-- js-scripts -->
@@ -264,16 +151,7 @@ function hideURLbar(){ window.scrollTo(0,1); }
 		<!-- here stars scrolling icon -->
 		<script type="text/javascript">
 			$(document).ready(function() {
-				/*
-					var defaults = {
-					containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-					};
-				 */
-
-				$().UItoTop({
+			$().UItoTop({
 					easingType : 'easeOutQuart'
 				});
 
