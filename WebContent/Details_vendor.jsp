@@ -92,6 +92,7 @@ function hideURLbar(){ window.scrollTo(0,1); }
 
 
 					<li><a href="contact.jsp" class="hvr-underline-from-center">Contact</a>
+					<li><a href="SearchVendors.jsp" class="hvr-underline-from-center">Search</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="ShowRequestServlet" class="hvr-underline-from-center">My Shipments</a></li>
