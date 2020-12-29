@@ -77,7 +77,7 @@ public class QuotationDao
 		try {
 			con = DbConnection.getConnection();
 			stmt = con.createStatement();
-			String selectQ = "select quotation.*, public.user.user_name,haulage.haul_id from quotation,public.user,haulage where quotation.ven_id="+userId+" and quotation.is_approved=true and quotation.cust_id=public.user.user_id and quotation.haul_id=haulage.haul_id and haulage.haul_status='quoted'";
+			String selectQ = "select quotation.*, public.user.user_name,haulage.haul_id from quotation,public.user,haulage where quotation.ven_id="+userId+" and quotation.is_approved='false' and quotation.cust_id=public.user.user_id and quotation.haul_id=haulage.haul_id and haulage.haul_status='quoted'";
 			System.out.println(selectQ);
 			rs = stmt.executeQuery(selectQ);
 			QuotationBean bean = null;
@@ -185,7 +185,7 @@ public class QuotationDao
 		try {
 			con = DbConnection.getConnection();
 			stmt = con.createStatement();
-			String selectQ = "select quotation.*, vendor_detail.*, haulage.haul_title from quotation,vendor_detail,haulage where quotation.cust_id="+userId+" and quotation.is_approved='true' and vendor_detail.user_id = quotation.ven_id and quotation.haul_id=haulage.haul_id";
+			String selectQ = "select quotation.*, vendor_detail.*, haulage.haul_title from quotation,vendor_detail,haulage where quotation.cust_id="+userId+" and quotation.is_approved='false' and vendor_detail.user_id = quotation.ven_id and quotation.haul_id=haulage.haul_id";
 			System.out.println(selectQ);
 			rs = stmt.executeQuery(selectQ);
 			QuotationBean bean = null;
