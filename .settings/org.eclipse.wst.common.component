@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="packers_moversJPA">
+            
+    
+    <wb-module deploy-name="SwiftPackers">
+                        
+        
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                        
+        
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="packers_moversJPA"/>
-        <property name="java-output-path" value="/packers_moversJPA/build/classes"/>
+                        
+        
+        <property name="java-output-path" value="/SwiftPackers/build/classes"/>
+                
+        <property name="context-root" value="SwiftPackers"/>
+                    
+    
     </wb-module>
+        
+
 </project-modules>
