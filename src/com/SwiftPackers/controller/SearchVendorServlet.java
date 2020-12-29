@@ -19,16 +19,12 @@ public class SearchVendorServlet extends HttpServlet {
         super();
     }
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String vendor_str = request.getParameter("search");
-
 		Vendor_detailDao dao = new Vendor_detailDao();
 		ArrayList<Vendor_detailBean> list = dao.searchVendor_detail(vendor_str);
 		if(list.size() > 0) request.setAttribute("res", true);
 		else request.setAttribute("res", false);
 		request.setAttribute("Vendor_detailList", list);
-		request.getRequestDispatcher("SearchVendors.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("SearchVendors.jsp").forward(request, response);	
 	}
-
 }

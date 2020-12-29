@@ -114,7 +114,7 @@ function hideURLbar()
 									<td><%=cnt%></td>
 									<td><%=haulageBean.getUserName()%></td>
 									<td><a href="ShowUserDetailsServlet?haul_id=<%=haulageBean.getHaulId()%>"><input type="submit" value="View User Details" style="background-color: #ff8922;color: white;border: none;padding: 10px;"></a></td>
-									<td><a href="PlaceQuotation.jsp?haul_id=<%=haulageBean.getHaulId()%>"><input type="submit" value="Place Quotation"></a></td>
+									<td><a href="PlaceQuotation.jsp?haul_id=<%=haulageBean.getHaulId()%>"><input type="submit" style="background-color: #ff8922;color: white;border: none;padding: 14px;" value="Place Quotation"></a></td>
 								</tr>
 								 <%cnt++;} %>
 								</tbody>
@@ -169,7 +169,7 @@ function hideURLbar()
 								<tr>
 									<th>Sr.no</th>
 									<th>Customer Name</th>
-									<th>Haulage Detials</th>
+									<th>Haulage Details</th>
 									<th>Delivery Date</th>
 									<th>Quotation</th>
 									<th>Payment Status</th>
@@ -187,11 +187,11 @@ function hideURLbar()
 								<tr>
 									<td><%=cnt2%></td>
 									<td><%=quotBean.getUserName()%></td>
-									<td><a href="ShowUserDetailsServlet?haul_id=<%=quotBean.getHaulId()%>"><input type="submit" value="View User Details" style="background-color: #ff8922;color: white;border: none;padding: 10px;"></a></td>
+									<td><a href="ShowUserDetailsServlet?haul_id=<%=quotBean.getHaulId()%>"><input type="submit"  value="View User Details" style="background-color: #ff8922;color: white;border: none;padding: 10px;"></a></td>
 									<td><%=quotBean.getDeliveryDate() %></td>
 									<td><%=quotBean.getQuotPrice() %></td>
 									<td>Received Successfully</td>
-									<td><a href="UpdateDelStatusServlet?delStatus=delivered&haulId=<%=quotBean.getHaulId()%>"><button>delivered</button></a></td>
+									<td><a href="UpdateDelStatusServlet?delStatus=delivered&haulId=<%=quotBean.getHaulId()%>"><button style="background-color: #ff8922;color: white;border: none;padding: 14px;">delivered</button></a></td>
 								 	<td>
 								 </tr>
 								 <%cnt2++;} %>
@@ -209,7 +209,7 @@ function hideURLbar()
 								<tr>
 									<th>Sr.no</th>
 									<th>Customer Name</th>
-									<th>Haulage Detials</th>
+									<th>Haulage Details</th>
 									<th>Shipment Date</th>
 									<th>Quotation</th>
 									<th>Shipment Status</th>
@@ -225,11 +225,11 @@ function hideURLbar()
 								<tr>
 									<td><%=cnt3%></td>
 									<td><%=quotBean.getUserName()%></td>
-									<td><a href="ShowUserDetailsServlet?haul_id=<%=quotBean.getHaulId()%>"><input type="submit" value="View User Details"></a></td>
+									<td><a href="ShowUserDetailsServlet?haul_id=<%=quotBean.getHaulId()%>"><input style="background-color: #ff8922;color: white;border: none;padding: 14px;" type="submit" value="View User Details"></a></td>
 									<td><%=quotBean.getDeliveryDate() %></td>
 									<td><%=quotBean.getQuotPrice() %></td>
 									<td>Delivered Successfully</td>
-									<td><a href="UpdateDelStatusServlet?delStatus=Notdelivered&haulId=<%=quotBean.getHaulId()%>"><button>Not delivered</button></a></td>
+									<td><a href="UpdateDelStatusServlet?delStatus=Notdelivered&haulId=<%=quotBean.getHaulId()%>"><button style="background-color: #ff8922;color: white;border: none;padding: 14px;">Not delivered</button></a></td>
 								 <%} %>
 								 </tr>
 								</tbody>

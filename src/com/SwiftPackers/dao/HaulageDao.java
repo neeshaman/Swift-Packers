@@ -20,7 +20,7 @@ public class HaulageDao {
 			String insertQ = "insert into haulage (Cust_id,Ven_id,Delivery_status,Booking_date,Delivery_date,Service_id,Total_amt,Pickup_loc,Delivery_loc,haul_title,haul_status,auth_code) values ("
 					+ bean.getCustId() + "," + bean.getVenId() + ","
 					+ bean.getDeliveryStatus() + ",'" + bean.getBookingDate() + "','"+ bean.getDeliveryDate() + "'," + bean.getServiceId() + "," + bean.getTotalAmount() + ",'"
-					+ bean.getPickupLoc() + "','" + bean.getDeliveryLoc() + "','" + bean.getHaulTitle() +"','estimate','"+bean.getAuthCode()+"')";
+					+ bean.getPickupLoc() + "','" + bean.getDeliveryLoc() + "','" + bean.getHaulTitle() +"','" + bean.getHaulStatus() +"','"+bean.getAuthCode()+"')";
 			System.out.println(insertQ);
 			int i = stmt.executeUpdate(insertQ);
 			if (i == 1) {

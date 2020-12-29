@@ -38,7 +38,7 @@ public class CustFinalServlet extends HttpServlet {
 		//boolean isError = false;
 		
 		QuotationDao Qdao=new QuotationDao();
-		ArrayList<QuotationBean> list=Qdao.getCustPendingQuotation(userId);
+		ArrayList<QuotationBean> list= Qdao.getCustPendingQuotation(userId);
 		ArrayList<QuotationBean> list1=Qdao.getCustApprovedQuotation(userId);
 		ArrayList<QuotationBean> list2=Qdao.getCustDeliveredQuotation(userId);
 

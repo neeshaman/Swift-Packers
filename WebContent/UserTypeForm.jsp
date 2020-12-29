@@ -1,7 +1,8 @@
-<%@page import="java.sql.ResultSet"%>
+
+<%@ page import="java.sql.ResultSet" %>
+<%@page import="com.SwiftPackers.util.DbConnection"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="com.SwiftPackers.bean.AnimalBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE HTML>
@@ -40,13 +41,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <link href="cssA/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
-	
 	<%
-	AnimalBean bean = (AnimalBean) request.getAttribute("AnimalBean");
-	%>
-
-	<%
-		String AnimalTypeError = (String) request.getAttribute("AnimalTypeError");
+		String UserTypeNameError = (String) request.getAttribute("UserTypeNameError");
+		
 	%>
 
 
@@ -82,14 +79,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="ListServiceServlet">Service</a>								</li>
 								
-								<li>
-									<a href="ListFoodServlet">Food</a>								</li>
+								
 								<li>
 									<a href="ListVehicleServlet">Vehicle</a>								</li>
 								<li>
 									<a href="ListHouseholdServlet">Household</a>								</li>
-								<li>
-									<a href="ListAnimalServlet">Animal</a>								</li>
+								
 								<li>
 									<a href="ListOffice_removalsServlet">Office_removals</a>			</li>
 								<li>
@@ -103,7 +98,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<!-- /nav-second-level -->
 						</li>
 							
-							<!-- //nav-second-level -->
+							<!-- //nav-second-level --></li>
 						
 					</ul>
 					<div class="clearfix"> </div>
@@ -121,14 +116,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 				<!--logo -->
 				<div class="logo">
 					<a href="AdminHome.jsp">
-						<img alt="" src="imagesA/logo.png">	
+						<img alt="" src="imagesA/logo.png">
 					</a>
 				</div>
 				<!--//logo-->
 				<!--search-box-->
 				
 			</div>
-			<div class="header-right">
+		<div class="header-right">
 				<div class="profile_details_left"><!--notifications of menu start -->
 					<ul class="nofitications-dropdown">
 						<li class="dropdown head-dpdn">
@@ -174,19 +169,19 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="main-page">
 				<div class="forms">
 					<div class="row">
-						<h3 class="title1">Edit Animal Form :</h3>
+						<h3 class="title1">Add User Type:</h3>
 						<div class="form-three widget-shadow">
-							<form class="form-horizontal" action="UpdateAnimalServlet">
-								<input type="hidden" class="form-control1" id="disabledinput"  name="animalId" value="<%=bean.getAnimalId()%>" />
-								
+							<form class="form-horizontal" action="UserTypeFormServlet">
+															
 								<div class="form-group">
-									<label for="focusedinput" class="col-sm-2 control-label">Animal Type</label>
+									<label for="focusedinput" class="col-sm-2 control-label">User Type Name</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control1" id="focusedinput" required name="animalType" value="<%=bean.getAnimalType()==null? "":bean.getAnimalType() %>" />
-										<%=AnimalTypeError == null ? "" : AnimalTypeError%>
+										<input type="text" class="form-control1" id="focusedinput" required name="userTypeName" value="${UserTypeNameValue}" />
+										<%=UserTypeNameError == null ? "" : UserTypeNameError%>
 									</div>
 								</div>
-								<input type="submit" value="Update" style="background-color: #e94e02;color: white;border: none;padding: 10px 25px;">
+								
+								<input type="submit" value="Submit" style="background-color: #e94e02;color: white;border: none;padding: 10px 25px;">
 							</form>	
 						</div>
 					</div>

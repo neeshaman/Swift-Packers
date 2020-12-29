@@ -78,14 +78,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="ListServiceServlet">Service</a>								</li>
 							
-								<li>
-									<a href="ListFoodServlet">Food</a>								</li>
+						
 								<li>
 									<a href="ListVehicleServlet">Vehicle</a>								</li>
 								<li>
 									<a href="ListHouseholdServlet">Household</a>								</li>
-								<li>
-									<a href="ListAnimalServlet">Animal</a>								</li>
+								
 								<li>
 									<a href="ListOffice_removalsServlet">Office_removals</a>			</li>
 								<li>
@@ -205,8 +203,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			con = DbConnection.getConnection();
 			stmt = con.createStatement();
 			stmt1 = con.createStatement();
-			String UselectQ = "select * from user where user_id="+bean.getCustId();
-			String VselectQ = "select * from user where user_id="+bean.getVenId();
+			String UselectQ = "select * from public.user where user_id="+bean.getCustId();
+			String VselectQ = "select * from public.user where user_id="+bean.getVenId();
 			System.out.println(UselectQ+"\n"+VselectQ);
 			rs = stmt.executeQuery(UselectQ);
 			rs1 = stmt1.executeQuery(VselectQ);
@@ -216,8 +214,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			e.printStackTrace();
 		}
 	%>									
-								
-								
 								
 								<%if(rs.next()){ %>	
 									<td><%=rs.getString("user_name")%></td>

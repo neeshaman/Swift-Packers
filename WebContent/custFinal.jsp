@@ -257,7 +257,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<td><%=qBean.getVen_companyName() %></td>
 									<td><%=qBean.getDeliveryDate()%></td>
 									<td><%=qBean.getHaulStatus()%></td>
-									<td><a href="FeedbackForm.jsp"><input type="submit" value="Write feedback"></a></td>
+									<td><a href="FeedbackForm.jsp"><input style="background-color: #ff8922;color: white;border: none;padding: 14px;" type="submit" value="Write feedback"></a></td>
 								 </tr>
 								 <%cnt3++;} %>
 								</tbody>

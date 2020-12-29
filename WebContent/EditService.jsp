@@ -85,8 +85,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 									<a href="ListServiceServlet">Service</a>								</li>
 								
 								<li>
-									<a href="ListFoodServlet">Food</a>								</li>
-								<li>
 									<a href="ListVehicleServlet">Vehicle</a>								</li>
 								<li>
 									<a href="ListHouseholdServlet">Household</a>								</li>
